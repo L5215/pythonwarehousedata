@@ -1,29 +1,17 @@
 def lengthOfLongestSubstring(s: str) -> int:
     if not s:
         return 0
-
-        # 初始化两个指针，一个用于记录子串的起始位置，另一个用于遍历字符串
     start, max_length = 0, 0
-    # 创建一个集合，用于记录当前子串中的字符
     char_set = set()
-
     for end in range(len(s)):
-        # 如果当前字符不在集合中，则添加到集合中，并更新最大长度（如果需要）
         while s[end] not in char_set:
             char_set.add(s[end])
             max_length = max(max_length, end - start + 1)
             end += 1
-            # 如果已经遍历完整个字符串，则退出循环
             if end == len(s):
                 break
-
-                # 如果当前字符在集合中，则将起始指针移动到该字符的下一个位置，并从集合中移除该字符之前的所有字符
         start += 1
         char_set.remove(s[start - 1])
-
     return max_length
-
-
-# 示例
 s = "abcabcbb"
-print(lengthOfLongestSubstring(s))  # 输出: 3
+print(lengthOfLongestSubstring(s))
