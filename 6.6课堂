@@ -1,0 +1,24 @@
+#open()方法
+# f=open('python.txt','r',enconding="UTF-8")
+f=open('python.txt')
+content = f.readlines()
+# ['hello word\n', 'abcdefg\n', 'aaa\n', 'bbb\n', 'ccc']
+print(content)
+#关闭文件
+f.close()
+
+f=open('python.txt')
+content=f.readline()
+print(f'第一行:{content}')
+content=f.readline()
+print(f'第二行:{content}')
+f.close()
+
+for line in open('python.txt','r'):
+    print(line)
+
+#with open()方法
+with open("python.txt","r")as f:
+    f.readlines()
+#通过在with open()的语句块中对文件进行操作
+#可以在操作完成后自动关闭close文件，避免遗忘掉close方法
