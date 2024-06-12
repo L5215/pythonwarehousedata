@@ -1,0 +1,7 @@
+with open(*C:/Users/Administrator/Desktop/5ban.txt","r*) as f:
+content=f.readlines() print(content) count=0
+for x in content:
+print(x)
+if "itheima* in x:
+count+=1
+print(count)
